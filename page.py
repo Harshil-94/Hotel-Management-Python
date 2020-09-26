@@ -1,0 +1,64 @@
+def loginpage():
+    from tkinter import *
+    from tkinter import ttk
+    from tkinter import messagebox
+
+    root = Tk()
+    frame_header = ttk.Frame(root)
+    frame_header.pack()
+    logo = PhotoImage(file='nesthotel.png').subsample(2, 2)
+    logolabel = ttk.Label(frame_header, text='logo', image=logo)
+    logolabel.grid(row=0, column=0, rowspan=2)
+    headerlabel = ttk.Label(frame_header, text='CUSTOMER FEEDBACK', foreground='orange',
+                            font=('Arial', 24))
+    headerlabel.grid(row=0, column=1)
+    messagelabel = ttk.Label(frame_header,
+                             text='******WELCOME******',
+                             foreground='purple', font=('Arial', 10))
+    messagelabel.grid(row=1, column=1)
+
+    frame_content = ttk.Frame(root)
+    frame_content.pack()
+    # def submit():
+    #     username = entry_name.get()
+    #     print(username)
+
+    myvar = StringVar()
+    var = StringVar()
+    # cmnt= StringVar()
+    namelabel = ttk.Label(frame_content, text='USERNAME')
+    namelabel.grid(row=0, column=0, padx=5, sticky='sw')
+    entry_name = ttk.Entry(frame_content, width=18, font=('Arial', 14), textvariable=myvar)
+    entry_name.grid(row=1, column=0)
+
+    emaillabel = ttk.Label(frame_content, text='PASSWORD')
+    emaillabel.grid(row=0, column=1, sticky='sw')
+    entry_email = ttk.Entry(frame_content, width=18, font=('Arial', 14), textvariable=var)
+    entry_email.grid(row=1, column=1)
+
+    # def clear():
+    #     textcomment.delete(1.0,'end')
+    def clear():
+        global entry_name
+        global entry_email
+        messagebox.showinfo(title='clear', message='Do you want to clear?')
+        entry_name.delete(0, END)
+        entry_email.delete(0, END)
+
+
+    def submit():
+        flag=0
+        global entry_name
+        global entry_email
+        user=('USERNAME:{}'.format(myvar.get()))
+        paswd=('PASSWORD:{}'.format(var.get()))
+        
+        messagebox.showinfo(title='Submit', message='Done!')
+        entry_name.delete(0, END)
+        entry_email.delete(0, END)
+
+
+    submitbutton = ttk.Button(frame_content, text='Submit', command=submit).grid(row=4, column=0, sticky='e')
+    clearbutton = ttk.Button(frame_content, text='Clear', command=clear).grid(row=4, column=1, sticky='w')
+
+    mainloop()

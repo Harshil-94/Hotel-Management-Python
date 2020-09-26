@@ -1,0 +1,70 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.0.41-community-nt MySQL Community Edition (GPL)
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> create database hotel;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> create table staff,
+    -> name varchar(20)primary key,
+    -> age int(3),
+    -> workhour int(2),
+    -> salary int(20),
+    -> designation varchar(20));
+ERROR 1046 (3D000): No database selected
+mysql> use hotel;
+Database changed
+mysql> create table staff,
+    -> name varchar(20)primary key,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near '
+name varchar(20)primary key,' at line 1
+mysql> create table staff
+    -> name varchar(20)primary key,
+    -> age int(3),
+    -> workhour int(2),
+    -> salary int(20),select;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'name
+varchar(20)primary key,
+age int(3),
+workhour int(2),
+salary int(20),select' at line 2
+mysql> create table staff
+    -> (name varchar(20)primary key,
+    -> age int(3),
+    -> workhour int(2),
+    -> salary int(20),
+    -> designation varchar(20));
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> insert into staff values('harshil choudhary','19','10','700000','mannager
+');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into staff values('nimit himmatramka','20','7','12000','receptioni
+st');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into staff values('yuvraj agarwal','24','17','120000','cleaner');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into staff values('dipesh sharma','22','10','12500','gaming room s
+taff');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into staff values('dev bansal','20','12','62500','resturant staff'
+);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into staff values('mohit agarwal','25','10','12000','cleaner');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into staff values('himanshu singh','55','10','12600','cleaner');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>
